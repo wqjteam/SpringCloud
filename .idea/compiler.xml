@@ -15,12 +15,13 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Cloud" target="1.8" />
-      <module name="cloud-consumer" target="1.5" />
-      <module name="cloud-provider" target="1.5" />
+      <module name="cloud-consumer" target="1.8" />
+      <module name="cloud-provider" target="1.8" />
       <module name="cloud-server" target="1.8" />
       <module name="cloudserver" target="1.8" />
       <module name="eureka-client" target="1.8" />
       <module name="eureka-server" target="1.8" />
+      <module name="test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
