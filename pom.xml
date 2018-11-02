@@ -9,21 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <docker.plugin.version>1.0.0</docker.plugin.version>
-        <docker.image.prefix>spring-boot-cloud</docker.image.prefix>
-        <spring-cloud.version>Greenwich.M1</spring-cloud.version>
-        <spring-boot-admin.version>2.0.3</spring-boot-admin.version>
-        <mysql-connector>5.1.40</mysql-connector>
-    </properties>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.6.RELEASE</version>
+        <version>1.5.6.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -33,20 +22,33 @@
         <module>cloud-consumer</module>
     </modules>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <docker.plugin.version>1.0.0</docker.plugin.version>
+        <docker.image.prefix>spring-boot-cloud</docker.image.prefix>
+        <spring-cloud.version>Dalston.SR4</spring-cloud.version>
+        <spring-boot-admin.version>2.0.3</spring-boot-admin.version>
+        <mysql-connector>5.1.40</mysql-connector>
+    </properties>
+
+
+
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
     </dependencies>
 
