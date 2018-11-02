@@ -1,8 +1,10 @@
-package com.wqj.cloudserver.controller;
+package com.wqj.cloudserver.rpc.impl;
 
 import com.wqj.cloudserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
-public class UserController {
+@EnableDiscoveryClient
+public class UserServiceImpl {
 
     @Autowired
     private DiscoveryClient client;
