@@ -23,7 +23,7 @@ public class RpcUserServiceImpl {
     private UserService userService;
 
     @RequestMapping(value = "/hello")
-    public Object provider1(@RequestParam(value = "id")Long id) {
+    public Object provider1(Long id) {
         return userService.findUserById(id);
     }
 }

@@ -14,7 +14,6 @@
         <groupId>com.wqj</groupId>
         <artifactId>Cloud</artifactId>
         <version>1.0-SNAPSHOT</version>
-
     </parent>
 
     <dependencies>
