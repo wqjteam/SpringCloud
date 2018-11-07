@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface RpcUserService {
 
 
-    @RequestMapping(value = "/hello")
+    @RequestMapping(value = "/service/getUser")
     Object provider1(@RequestParam(value = "id")Long id);
 }

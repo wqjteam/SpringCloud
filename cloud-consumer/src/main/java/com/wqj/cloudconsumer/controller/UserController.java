@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RefreshScope //springconf的自动更新
+@RequestMapping(value = "/consumer")
 public class UserController {
     @Autowired
     public RpcUserService userService;

@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
+@RequestMapping(value = "/service")
 public class RpcUserServiceImpl {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/hello")
+    @RequestMapping(value = "/getUser")
     public Object provider1(Long id) {
         return userService.findUserById(id);
     }
