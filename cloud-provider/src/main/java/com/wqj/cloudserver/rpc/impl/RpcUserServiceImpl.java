@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
-@EnableDiscoveryClient
 public class RpcUserServiceImpl {
 
     @Autowired
