@@ -2,6 +2,9 @@ package com.wqj.cloudconsumer.controller;
 
 import com.wqj.cloudconsumer.rpc.RpcUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,12 +15,21 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description:
  */
 @RestController
+@RefreshScope //springconf的自动更新
 public class UserController {
     @Autowired
     public RpcUserService userService;
 
+    @Value("${wexin.name}") //springconf的引入注解
+    private String name;
+
     @RequestMapping(value = "/hell", method = RequestMethod.GET)
     public Object provider1(Long id) {
         return userService.provider1(id);
+    }
+
+    @RequestMapping(value = "/config")
+    public Object testConfig(Long id) {
+        return name;
     }
 }
