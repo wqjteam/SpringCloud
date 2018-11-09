@@ -28,8 +28,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <docker.host>http://docker:2375</docker.host>
+        <docker.repostory>docker:5000</docker.repostory>
         <docker.plugin.version>1.0.0</docker.plugin.version>
-        <docker.image.prefix>spring-boot-cloud</docker.image.prefix>
+        <docker.image.prefix>spring-cloud</docker.image.prefix>
         <spring-cloud.version>Dalston.SR4</spring-cloud.version>
         <spring-boot-admin.version>2.0.3</spring-boot-admin.version>
         <mysql-connector>5.1.40</mysql-connector>
@@ -107,21 +109,34 @@
                         </execution>
                     </executions>
                 </plugin>
+
+                <!--此插件专门用作maven构建docker插件-->
                 <plugin>
                     <groupId>com.spotify</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <version>${docker.plugin.version}</version>
                     <executions>
                         <execution>
-                            <phase>package</phase>
+                            <!--当deploy时候构建docker仓库-->
+                            <phase>deploy</phase>
                             <goals>
                                 <goal>build</goal>
                             </goals>
                         </execution>
                     </executions>
                     <configuration>
+                        <!--远程docker的客户端-->
+                        <dockerHost>${docker.host}</dockerHost>
                         <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                        <!--会推送镜像到私有仓库-->
+                        <!--imageName为镜像的名称-->
+                        <!--<pushImage>true</pushImage>-->
+                        <!--镜像名称-->
+                        <!--<imageName>${docker.image.prefix}/${docker.image.prefix}/${project.artifactId}</imageName>-->
+
+                        <!--dockerDirectory指定 Dockerfile 的位置-->
                         <dockerDirectory>${project.basedir}/</dockerDirectory>
+                        <!--resources是指那些需要和 Dockerfile 放在一起，在构建镜像时使用的文件，一般应用 jar 包需要纳入-->
                         <resources>
                             <resource>
                                 <targetPath>/</targetPath>
@@ -131,6 +146,7 @@
                         </resources>
                     </configuration>
                 </plugin>
+
             </plugins>
         </pluginManagement>
     </build>
