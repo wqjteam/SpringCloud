@@ -1,0 +1,2 @@
+可以使用该变量来区分不同的环境,设置在jvm中
+-Dspring.profiles.active=dev
