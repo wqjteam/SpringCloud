@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/consumer")
 public class UserController {
     @Autowired
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     public RpcUserService userService;
 
     @Value("${wexin.name}") //springconf的引入注解
