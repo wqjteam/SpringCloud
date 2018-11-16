@@ -45,6 +45,11 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
             </plugin>
+            <!--使用此插件,是为了build时候跳过test环境,duiyuconsumer来说,连接不上eureka会报错-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 public class CustomFilter extends ZuulFilter {
     @Override
     public String filterType() {
-        //枚举值：pre:转发前, routing:转法时, post:, error:发生错误时
+        //枚举值：pre:可以在请求被路由之前调用, routing:在路由请求时候被调用, post:在routing和error过滤器之后被调用, error:处理请求时发生错误时被调用
         return "pre";
     }
 

@@ -21,7 +21,7 @@ public class UserController {
     @Autowired
     public RpcUserService userService;
 
-//    @Value("${wexin.name}") //springconf的引入注解
+    @Value("${wexin.name}") //springconf的引入注解
     private String name;
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
